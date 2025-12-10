@@ -42,12 +42,14 @@
     }
     .media-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1rem;
     }
-    .media-grid img {
+    .media-grid img,
+    .media-grid video {
       width: 100%;
       border-radius: 8px;
+      display: block;
     }
     .trailer {
       margin-top: 1rem;
@@ -79,13 +81,15 @@
   <header>
     <img src="assets/header.png" alt="PlayDownMouse Key Art">
   </header>
+
   <main>
     <section>
       <h2>Game Overview</h2>
       <p><strong>Genre:</strong> Arcade shooter</p>
       <p><strong>Platforms:</strong> PC (Steam)</p>
       <p><strong>Release Date:</strong> 2025-10-19</p>
-      <p><strong>Website:</strong> <a href="https://playdownmouse.com">https://playdownmouse.com</a></p>
+      <p><strong>Price:</strong> $3.99</p>
+      <!--<p><strong>Website:</strong> <a href="https://playdownmouse.com">https://playdownmouse.com</a></p>-->
     </section>
 
     <section>
@@ -96,34 +100,65 @@
     <section>
       <h2>Trailer</h2>
       <div class="trailer">
-        <iframe src="https://www.youtube.com/watch?v=mRWO_oQhP9g" title="PlayDownMouse Trailer" allowfullscreen></iframe>
+        <!-- Use the EMBED URL, not the watch URL -->
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/mRWO_oQhP9g"
+          title="PlayDownMouse Trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
       </div>
     </section>
 
     <section>
       <h2>Media</h2>
-      <div class="media-grid" id="mediaGrid"></div>
+      <div class="media-grid">
+        <!-- 7 screenshots, static (jpg) -->
+        <a href="assets/screenshot_1.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_1.jpg" alt="Screenshot 1"></a>
+        <a href="assets/screenshot_2.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_2.jpg" alt="Screenshot 2"></a>
+        <a href="assets/screenshot_3.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_3.jpg" alt="Screenshot 3"></a>
+        <a href="assets/screenshot_4.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_4.jpg" alt="Screenshot 4"></a>
+        <a href="assets/screenshot_5.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_5.jpg" alt="Screenshot 5"></a>
+        <a href="assets/screenshot_6.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_6.jpg" alt="Screenshot 6"></a>
+        <a href="assets/screenshot_7.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_7.jpg" alt="Screenshot 7"></a>
+      </div>
+
       <a class="download-btn" href="assets/downmouse_presskit.zip">Download Press Kit (ZIP)</a>
     </section>
 
     <section>
       <h2>GIFs</h2>
       <div class="media-grid">
-        <a href="assets/video_1.webm" target="_blank"><img src="assets/video_1.webm" alt="GIF 1"></a>
-        <a href="assets/video_2.webm" target="_blank"><img src="assets/video_2.webm" alt="GIF 2"></a>
-        <a href="assets/video_3.webm" target="_blank"><img src="assets/video_3.webm" alt="GIF 3"></a>
-        <a href="assets/video_4.webm" target="_blank"><img src="assets/video_3.webm" alt="GIF 4"></a>
+        <!-- .webm is VIDEO. Use <video> (not <img>) -->
+        <a href="assets/video_1.webm" target="_blank" rel="noopener">
+          <video src="assets/video_1.webm" autoplay loop muted playsinline preload="metadata"></video>
+        </a>
+        <a href="assets/video_2.webm" target="_blank" rel="noopener">
+          <video src="assets/video_2.webm" autoplay loop muted playsinline preload="metadata"></video>
+        </a>
+        <a href="assets/video_3.webm" target="_blank" rel="noopener">
+          <video src="assets/video_3.webm" autoplay loop muted playsinline preload="metadata"></video>
+        </a>
+        <a href="assets/video_4.webm" target="_blank" rel="noopener">
+          <video src="assets/video_4.webm" autoplay loop muted playsinline preload="metadata"></video>
+        </a>
       </div>
     </section>
 
     <section>
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:contact@playdownmouse.com">wobblyhandgames@gmail.com</a></p>
-      <p>Twitter/X: <a href="https://twitter.com/downmousegame">@downmousegame</a></p>
-      <p>Discord: <a href="https://discord.gg/qQ383p96jC">Join my community</a></p>
+      <!-- Fix: link text didn't match href -->
+      <p>Email: <a href="mailto:wobblyhandgames@gmail.com">wobblyhandgames@gmail.com</a></p>
+      <p>Twitter/X: <a href="https://twitter.com/downmousegame" target="_blank" rel="noopener">@downmousegame</a></p>
+      <p>Discord: <a href="https://discord.gg/qQ383p96jC" target="_blank" rel="noopener">Join my community</a></p>
       <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 1rem;">
-        <a href="https://www.tiktok.com/@wobblyhandgames" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" width="32" height="32"></a>
-        <a href="https://www.reddit.com/user/Senior-Silver-7388/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/reddit.svg" alt="Reddit" width="32" height="32"></a>
+        <a href="https://www.tiktok.com/@wobblyhandgames" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" width="32" height="32">
+        </a>
+        <a href="https://www.reddit.com/user/Senior-Silver-7388/" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/reddit.svg" alt="Reddit" width="32" height="32">
+        </a>
       </div>
     </section>
 
@@ -132,37 +167,9 @@
       <p>I am the solo developer behind this game. While during the day I am working fulltime on a bigger game, I spend my evenings on smaller projects like this one, I really hope you'll like it!</p>
     </section>
   </main>
+
   <footer>
     &copy; 2025 PlayDownMouse. All rights reserved.
   </footer>
-<script>
-  const mediaGrid = document.getElementById('mediaGrid');
-  let index = 1;
-
-  function loadScreenshot() {
-    const img = new Image();
-    const src = `assets/screenshot_${index}.png`;
-
-    img.onload = () => {
-      const link = document.createElement('a');
-      link.href = src;
-      link.target = '_blank';
-      img.alt = `Screenshot ${index}`;
-      link.appendChild(img);
-      mediaGrid.appendChild(link);
-
-      index++;
-      loadScreenshot();
-    };
-
-    img.onerror = () => {
-      console.log(`Finished loading ${index - 1} screenshots.`);
-    };
-
-    img.src = src;
-  }
-
-  loadScreenshot();
-</script>
 </body>
 </html>
