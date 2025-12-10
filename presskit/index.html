@@ -27,7 +27,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
       background-color: rgba(255, 255, 255, 0.95);
@@ -40,26 +40,55 @@
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.25rem;
     }
+
+    /* Base grid */
     .media-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1rem;
     }
+
+    /* Screenshots: bigger, 2 per row */
+    .media-grid--screenshots {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 640px) {
+      .media-grid--screenshots {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Videos: bigger, 1 per row */
+    .media-grid--videos {
+      grid-template-columns: 1fr;
+    }
+
     .media-grid img,
     .media-grid video {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
       display: block;
     }
+
+    /* Make video tiles feel a bit more "featured" */
+    .media-grid--videos video {
+      border-radius: 12px;
+    }
+
     .trailer {
       margin-top: 1rem;
     }
     .trailer iframe {
       width: 100%;
-      height: 400px;
+      height: 450px;
       border: none;
       border-radius: 8px;
     }
+    @media (max-width: 640px) {
+      .trailer iframe {
+        height: 260px;
+      }
+    }
+
     .download-btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -86,7 +115,11 @@
     <section>
       <h2>Game Overview</h2>
       <p><strong>Genre:</strong> Arcade shooter</p>
-      <p><strong>Platforms:</strong> PC (Steam)</p>
+      <p><strong>Platforms:</strong>
+        <a href="https://store.steampowered.com/app/3654390/DOWNMOUSE/" target="_blank" rel="noopener">
+          PC (Steam)
+        </a>
+      </p>
       <p><strong>Release Date:</strong> 2025-10-19</p>
       <p><strong>Price:</strong> $3.99</p>
       <!--<p><strong>Website:</strong> <a href="https://playdownmouse.com">https://playdownmouse.com</a></p>-->
@@ -100,10 +133,9 @@
     <section>
       <h2>Trailer</h2>
       <div class="trailer">
-        <!-- Use the EMBED URL, not the watch URL -->
         <iframe
           src="https://www.youtube-nocookie.com/embed/mRWO_oQhP9g"
-          title="PlayDownMouse Trailer"
+          title="DOWNMOUSE Trailer"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
           referrerpolicy="strict-origin-when-cross-origin"
@@ -112,9 +144,8 @@
     </section>
 
     <section>
-      <h2>Media</h2>
-      <div class="media-grid">
-        <!-- 7 screenshots, static (jpg) -->
+      <h2>Screenshots</h2>
+      <div class="media-grid media-grid--screenshots">
         <a href="assets/screenshot_1.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_1.jpg" alt="Screenshot 1"></a>
         <a href="assets/screenshot_2.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_2.jpg" alt="Screenshot 2"></a>
         <a href="assets/screenshot_3.jpg" target="_blank" rel="noopener"><img src="assets/screenshot_3.jpg" alt="Screenshot 3"></a>
@@ -128,27 +159,25 @@
     </section>
 
     <section>
-      <h2>GIFs</h2>
-      <div class="media-grid">
-        <!-- .webm is VIDEO. Use <video> (not <img>) -->
+      <h2>Videos</h2>
+      <div class="media-grid media-grid--videos">
         <a href="assets/video_1.webm" target="_blank" rel="noopener">
-          <video src="assets/video_1.webm" autoplay loop muted playsinline preload="metadata"></video>
+          <video src="assets/video_1.webm" autoplay loop muted playsinline preload="metadata" controls></video>
         </a>
         <a href="assets/video_2.webm" target="_blank" rel="noopener">
-          <video src="assets/video_2.webm" autoplay loop muted playsinline preload="metadata"></video>
+          <video src="assets/video_2.webm" autoplay loop muted playsinline preload="metadata" controls></video>
         </a>
         <a href="assets/video_3.webm" target="_blank" rel="noopener">
-          <video src="assets/video_3.webm" autoplay loop muted playsinline preload="metadata"></video>
+          <video src="assets/video_3.webm" autoplay loop muted playsinline preload="metadata" controls></video>
         </a>
         <a href="assets/video_4.webm" target="_blank" rel="noopener">
-          <video src="assets/video_4.webm" autoplay loop muted playsinline preload="metadata"></video>
+          <video src="assets/video_4.webm" autoplay loop muted playsinline preload="metadata" controls></video>
         </a>
       </div>
     </section>
 
     <section>
       <h2>Contact</h2>
-      <!-- Fix: link text didn't match href -->
       <p>Email: <a href="mailto:wobblyhandgames@gmail.com">wobblyhandgames@gmail.com</a></p>
       <p>Twitter/X: <a href="https://twitter.com/downmousegame" target="_blank" rel="noopener">@downmousegame</a></p>
       <p>Discord: <a href="https://discord.gg/qQ383p96jC" target="_blank" rel="noopener">Join my community</a></p>
